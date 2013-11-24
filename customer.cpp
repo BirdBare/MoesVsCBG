@@ -65,7 +65,8 @@ bool customer::buy_something(product& ToBuy, const product Items[],
     }
     //if statement which checks pocket space and amount of cash then does the
     //customer part of the exchange
-    
+    else
+      happiness+=NOPURCHHAPPINESS;
   }
   else
     happiness+=NOPURCHHAPPINESS;
