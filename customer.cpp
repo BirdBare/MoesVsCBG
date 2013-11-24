@@ -34,7 +34,7 @@ ostream& operator<<(ostream& os, const customer& source)
 customer::customer()
 {
   numPurchases=0;
-  happiness=RanInt(MAXHAPPY);
+  happiness=MINHAPPY+40+RanInt(MAXHAPPY-80-MINHAPPY);
   cash=MINCASH+RanInt(MAXCASH-MINCASH);
 }
 
