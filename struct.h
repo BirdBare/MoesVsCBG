@@ -1,6 +1,6 @@
 //-----------------------------------------------------------------------------
 // Programmer : Bradley Bare          Student ID: 12363780
-// Homework: #10 , Simulate Madness   Filename: product.h
+// Homework: #10 , Simulate Madness   Filename: struct.h
 // Due Date: xx/xx/xx                 Class: CS53, Section B
 //-----------------------------------------------------------------------------
 // Program Description: This program simulates two competing businesses trying
