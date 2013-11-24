@@ -52,11 +52,12 @@ int main()
       cin >> trash;
     }
     
-      cout << endl << endl <<"----------Customer Information----------";
-      for(int i=0; i<StreetIdentitySize; i++) {
-        cout << endl << Street[i];
-      };
-
+    cout << endl << endl <<"----------Customer Information----------";
+    for(int i=0; i<StreetIdentitySize; i++) {
+      cout << endl << Street[i];
+    };
+    
+    cout << endl << endl << "Customers are entering businesses...";
     for(StreetIdentitySize-=1; 0<=StreetIdentitySize; StreetIdentitySize--) {
       if((Street[StreetIdentitySize].get_happiness()>=90 ||
           Street[StreetIdentitySize].get_happiness()<10) && repeat!=0) {
@@ -66,7 +67,7 @@ int main()
           cout << "experiencing Nirvana";
         else
           cout << "desperately unhappy";
-        cout << " and has gone to the House of Desperation ";
+        cout << " and has gone instead, to the House of Desperation ";
         if(Street[StreetIdentitySize].get_happiness()>=90)
           cout << "to lord over the depairati";
         else
@@ -90,7 +91,7 @@ int main()
     StreetIdentitySize=0;
     //Street Empty
     
-    cout << endl << endl << "----------Customer Purchases----------";
+    cout << endl << endl << "Customers are looking for items to buy...";
     Moes.sell_stuff();
     CBG.sell_stuff();
     //Businesses try to push product
@@ -100,11 +101,12 @@ int main()
     CBG.customers_leave(Street,StreetIdentitySize);
     //Customers come back out into the street
   
-    cout << endl << endl << "----------Customer Interactions----------";
     for(int i=0; i<2; i++) {
       if(i==0)
+        cout << endl << endl << "Customers are walking around...";
         ShuffleArray(Street,StreetIdentitySize); 
       if(i==1) {
+        cout << endl << endl << "Customers are interacting with each other...";
         for(int j=0; j<StreetIdentitySize; j++) {
           i = RanInt(StreetIdentitySize-1);
           if(Street[j].get_inclination()==Street[i].get_inclination())
@@ -120,7 +122,7 @@ int main()
     };
     //Shuffles cust array first then does interaction between customers
     
-    NewLiner(2);
+    NewLiner(1);
     repeat++;
   }
   //While loop to run for MAXREPEATS number of times or 
