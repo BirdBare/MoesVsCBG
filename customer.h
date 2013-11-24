@@ -78,8 +78,8 @@ class customer
  public:
   customer();
   bool buy_something(product& ToBuy, const product Items[], const int NumItems);
-  void throw_stuff(customer victim);
-  void rob_someone(customer victim);
+  void throw_stuff(customer& victim);
+  void rob_someone(customer& victim);
   int get_inclination(){return inclination;};
   short get_happiness(){return happiness;};
   string get_name(){return name;};

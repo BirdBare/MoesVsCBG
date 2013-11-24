@@ -51,13 +51,11 @@ int main()
       cout << endl << "Press any key followed by enter to start next round: ";
       cin >> trash;
     }
-  
-    cout << endl << endl <<"----------Customer Information----------";
-    for(int i=0; i<StreetIdentitySize; i++) {
-      cout << endl << Street[i];
-    };
     
-    NewLiner(2);
+      cout << endl << endl <<"----------Customer Information----------";
+      for(int i=0; i<StreetIdentitySize; i++) {
+        cout << endl << Street[i];
+      };
 
     for(StreetIdentitySize-=1; 0<=StreetIdentitySize; StreetIdentitySize--) {
       if((Street[StreetIdentitySize].get_happiness()>=90 ||
@@ -92,18 +90,17 @@ int main()
     StreetIdentitySize=0;
     //Street Empty
     
-    cout << endl << "----------Customer Purchases----------";
+    cout << endl << endl << "----------Customer Purchases----------";
     Moes.sell_stuff();
     CBG.sell_stuff();
-    Businesses try to push product
+    //Businesses try to push product
     
-    NewLiner(2);
-  
+    //NewLiner(2);
     Moes.customers_leave(Street,StreetIdentitySize);
     CBG.customers_leave(Street,StreetIdentitySize);
     //Customers come back out into the street
   
-    cout << endl << "----------Customer Interactions----------";
+    cout << endl << endl << "----------Customer Interactions----------";
     for(int i=0; i<2; i++) {
       if(i==0)
         ShuffleArray(Street,StreetIdentitySize); 

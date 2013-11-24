@@ -72,7 +72,7 @@ bool customer::buy_something(product& ToBuy, const product Items[],
   return success;
 }
 
-void customer::throw_stuff(customer victim)
+void customer::throw_stuff(customer& victim)
 {
   product item;
   int itemNum;
@@ -101,7 +101,7 @@ void customer::throw_stuff(customer victim)
   return;
 }
 
-void customer::rob_someone(customer victim)
+void customer::rob_someone(customer& victim)
 {
   product item;
   int itemNum;
@@ -109,10 +109,9 @@ void customer::rob_someone(customer victim)
   if(victim.numPurchases > 0 && numPurchases < MAXPURCHASES) {
     item=victim.purchases[itemNum=RanInt(victim.numPurchases-1)];
     //Picks item out of victims pocket
-    
     cout << endl << name << " steals a " << item.name << " from " 
          << victim.name << ".";
-    victim.purchases[itemNum]=victim.purchases[numPurchases-1];
+    victim.purchases[itemNum]=victim.purchases[victim.numPurchases-1];
     victim.numPurchases--;
     victim.happiness+=VICSTEALHAPPINESS;
     //officially steals item
