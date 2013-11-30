@@ -52,7 +52,7 @@
 using namespace std;
 
 #include <string>
-#include "struct.h"
+#include "product.h"
 #include "function.hpp"
 #include <iostream>
 
@@ -86,5 +86,5 @@ class customer
   bool FillCustData(const string file);
   friend ostream& operator<<(ostream& os, const customer& source);
   friend ostream& operator<<(ostream& os, const business& source);
- };
+};
 #endif

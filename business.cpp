@@ -81,6 +81,7 @@ void business::sell_stuff()
   product checkoutItem;
 
   for(int i=0; i<numCustomers; i++) {
+    
     purchased=customers[i].buy_something(checkoutItem, itemsToSell, numItems);
     if(purchased==true) {
       registerMoney+=checkoutItem.price;

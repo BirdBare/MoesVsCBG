@@ -27,13 +27,11 @@ ostream& operator<<(ostream& os, const business& source);
 ostream& operator<<(ostream& os, const customer& source);
 
 const int MAXREPEATS=20;
-//CONSTANTS
 
 int main()
 {
   int repeat=0, StreetIdentitySize=0;
   string trash;
-  bool quit=false;
   //variables
 
   business Moes("Moe's Bar",STARTINGCASH,"MoeSell.dat",7);
@@ -54,14 +52,13 @@ int main()
       cin >> trash;
     }
     
-    NewLiner(3);
-    cout << "----------Customer Information----------" << endl;
-    for(int i=0; i<StreetIdentitySize; i++) {
-      cout << endl << Street[i];
-    };
-    
-    NewLiner(3);
-    cout << "Customers are entering businesses..." << endl;
+    if(repeat==0) {
+      cout << endl << endl <<"----------Customer Information----------";
+      for(int i=0; i<StreetIdentitySize; i++) {
+        cout << endl << Street[i];
+      };
+    }
+
     for(StreetIdentitySize-=1; 0<=StreetIdentitySize; StreetIdentitySize--) {
       if((Street[StreetIdentitySize].get_happiness()>=90 ||
           Street[StreetIdentitySize].get_happiness()<10) && repeat!=0) {
@@ -71,8 +68,7 @@ int main()
           cout << "experiencing Nirvana";
         else
           cout << "desperately unhappy";
-        cout << " and has gone instead, to the House of Desperation in"
-             << " Shelbyville ";
+        cout << " and has gone to the House of Desperation ";
         if(Street[StreetIdentitySize].get_happiness()>=90)
           cout << "to lord over the depairati";
         else
@@ -86,6 +82,8 @@ int main()
         if(Street[StreetIdentitySize].get_inclination()<0)
           CBG.addCustomer(Street[StreetIdentitySize]);
       }
+      if(StreetIdentitySize==0 && repeat!=0)
+        NewLiner(2);
     };
     //Walks down cust array Street[] and assigns to store by inclination but 
     //if happiness is not in correct range they are remove from array
@@ -94,12 +92,9 @@ int main()
     StreetIdentitySize=0;
     //Street Empty
     
-    if(Moes.get_numCustomers()+CBG.get_numCustomers()>1) {
-      NewLiner(3);
-      cout << "Customers are looking for items to buy..." << endl;
-      Moes.sell_stuff();
-      CBG.sell_stuff();
-    }
+    //cout << endl << endl << "----------Customer Purchases----------";
+    Moes.sell_stuff();
+    CBG.sell_stuff();
     //Businesses try to push product
     
     //NewLiner(2);
@@ -109,11 +104,9 @@ int main()
   
     for(int i=0; i<2; i++) {
       if(i==0 && StreetIdentitySize>1)
-        //cout << endl << endl << "Customers are walking around...";
         ShuffleArray(Street,StreetIdentitySize); 
       if(i==1 && StreetIdentitySize>1) {
-        NewLiner(3);
-        cout << "Customers are interacting with each other..." << endl;
+        cout << endl << endl << "----------Customer Interactions----------";
         for(int j=0; j<StreetIdentitySize; j++) {
           i = RanInt(StreetIdentitySize-1);
           if(Street[j].get_inclination()==Street[i].get_inclination())
@@ -135,17 +128,8 @@ int main()
   //While loop to run for MAXREPEATS number of times or 
   //until num customers is 1 or less
   
-  NewLiner(2);
-  if(!(StreetIdentitySize>1)) {
-    cout << "*******Only one person left. Simulation ended*******";
-    quit=true;
-  }
-  if(!(repeat<MAXREPEATS) && !(quit==true))
-    cout << "*******Max repeats done. Simulation ended*******";
+  cout << "The Winning Business is: *****DRUMMMMMMROOLLLLLLLL***** " << endl ;
   
-  NewLiner(2);
-  cout << "The Winning Business is: *****DRUMMMMMMROOLLLLLLLL***** ";
-  NewLiner(2);
   Moes.get_money()>CBG.get_money() ?
   cout << Moes :
   cout << CBG;

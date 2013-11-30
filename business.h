@@ -62,7 +62,6 @@ class business
   void customers_leave(customer street[], int& streetSize);
   void sell_stuff();
   float get_money(){return registerMoney;};
-  short get_numCustomers(){return numCustomers;};
   friend ostream& operator<<(ostream& os, const business& source);
 };
 #endif

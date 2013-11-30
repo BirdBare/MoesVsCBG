@@ -34,7 +34,7 @@ ostream& operator<<(ostream& os, const customer& source)
 customer::customer()
 {
   numPurchases=0;
-  happiness=MINHAPPY+40+RanInt(MAXHAPPY-80-MINHAPPY);
+  happiness=RanInt(MAXHAPPY);
   cash=MINCASH+RanInt(MAXCASH-MINCASH);
 }
 
@@ -60,13 +60,12 @@ bool customer::buy_something(product& ToBuy, const product Items[],
       success=true;
       happiness+=YESPURCHHAPPINESS;
       
-      cout << endl << name << " purchases a " << ToBuy.name << " for $"
-           << ToBuy.price << ".";
+      //cout << endl << name << " purchases a " << ToBuy.name << " for $"
+        //   << ToBuy.price << ".";
     }
     //if statement which checks pocket space and amount of cash then does the
     //customer part of the exchange
-    else
-      happiness+=NOPURCHHAPPINESS;
+    
   }
   else
     happiness+=NOPURCHHAPPINESS;
