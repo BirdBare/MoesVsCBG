@@ -109,6 +109,7 @@ void customer::rob_someone(customer& victim)
   if(victim.numPurchases > 0 && numPurchases < MAXPURCHASES) {
     item=victim.purchases[itemNum=RanInt(victim.numPurchases-1)];
     //Picks item out of victims pocket
+    
     cout << endl << name << " steals a " << item.name << " from " 
          << victim.name << ".";
     victim.purchases[itemNum]=victim.purchases[victim.numPurchases-1];
